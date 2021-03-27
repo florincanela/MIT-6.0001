@@ -32,10 +32,42 @@ plaintext = "hello"
 
 message = ""
 
-for char in plaintext:
-    if char in shifted:
-        message += shifted[char]
-    else:
-        message += char
-print(message) 
+# for char in plaintext:
+#     if char in shifted:
+#         message += shifted[char]
+#     else:
+#         message += char
+# print(message) 
+VOWELS_LOWER = 'aeiou'
+# for letter in VOWELS_LOWER:
+#     uppercase = chr(ord(letter) - 32)
+#     print(letter, "-->", uppercase)
+vowels_permutation = "eaiuo"
 
+
+# permutated = {}
+# for i in range(len(VOWELS_LOWER)):
+#     uppercase = chr(ord(VOWELS_LOWER[i]) - 32)
+#     permutated[VOWELS_LOWER[i]] = vowels_permutation[i]
+#     permutated[uppercase] =  chr(ord(vowels_permutation[i]) - 32)
+
+permutated = {}
+CONSONANTS_LOWER = "bcdfghjklmnpqrstvwxyz"
+
+for i in range(len(CONSONANTS_LOWER)):
+    if i < len(VOWELS_LOWER):
+        uppercase = chr(ord(VOWELS_LOWER[i]) - 32)
+        permutated[VOWELS_LOWER[i]] = vowels_permutation[i]
+        permutated[uppercase] =  chr(ord(vowels_permutation[i]) - 32)
+    uppercase = chr(ord(CONSONANTS_LOWER[i]) - 32)
+    permutated[CONSONANTS_LOWER[i]] = CONSONANTS_LOWER[i]
+    permutated[uppercase] =  uppercase
+
+
+print(permutated.get(" ", "space"))
+print(permutated[" "])
+
+# message = "Hello, sirr?? how are you today my dear sir?! ARe you well?"
+
+
+# print(message.split(" "))
